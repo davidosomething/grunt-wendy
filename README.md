@@ -9,7 +9,7 @@ features:
   * custom grunt exit status (warn on skips/fatal on casper error)
   * Output parsing and aggregated results
 
-![Example output](https://raw.githubusercontent.com/davidosomething/grunt-wendy/screenshot.png)
+![Example output](https://raw.githubusercontent.com/davidosomething/grunt-wendy/master/screenshot.png)
 
 ## Status
 
