@@ -9,6 +9,13 @@ features:
   * custom grunt exit status (warn on skips/fatal on casper error)
   * Output parsing and aggregated results
 
+## Status
+
+| Service  | Status
+| -------: | :--------
+| Build    | [![Travis CI build status][travisBadge]][travisLink]
+| NPM      | [![David dependency status][davidBadge]][davidLink] [![Development Dependency Status][davidDevBadge]][davidDevLink] [![Peer Dependency Status][davidPeerBadge]][davidPeerLink]
+
 ## Getting Started
 
 This plugin requires Grunt `~0.4.0`
@@ -158,3 +165,11 @@ Follow the standards of the included eslint and markdownlint.
 [custom casper test runners]: http://casperjs.readthedocs.org/en/latest/testing.html#extending-casper-for-testing
 [casper's included test runner]: https://github.com/n1k0/casperjs/blob/master/tests/run.js
 
+[davidBadge]:       https://david-dm.org/davidosomething/grunt-wendy.png?theme=shields.io
+[davidLink]:        https://david-dm.org/davidosomething/grunt-wendy#info=dependencies
+[davidDevBadge]:    https://david-dm.org/davidosomething/grunt-wendy/dev-status.png?theme=shields.io
+[davidDevLink]:     https://david-dm.org/davidosomething/grunt-wendy#info=devDependencies
+[davidPeerBadge]:   https://david-dm.org/davidosomething/grunt-wendy/peer-status.png?theme=shields.io
+[davidPeerLink]:    https://david-dm.org/davidosomething/grunt-wendy#info=peerDependencies
+[travisLink]:       https://travis-ci.org/davidosomething/grunt-wendy
+[travisBadge]:      https://travis-ci.org/davidosomething/grunt-wendy.svg?branch=master
