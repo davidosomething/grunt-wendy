@@ -58,5 +58,8 @@
     "testing",
     "e2e",
     "integration"
-  ]
+  ],
+  "scripts": {
+    "test": "grunt test"
+  }
 }
