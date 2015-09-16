@@ -135,7 +135,9 @@ using [Grunt].
 Follow the standards of the included eslint and markdownlint.
 
 ## CHANGELOG
-
+* 0.0.3
+    * Add test for dubious output
+    * Fix aggregated output (skipped and dubious showing same result)
 * 0.0.2
     * Split into modules in `lib/`
 * 0.0.1

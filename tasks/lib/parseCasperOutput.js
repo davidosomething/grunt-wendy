@@ -8,7 +8,7 @@ module.exports = function (buf, options, aggregated) {
     aggregated.passed += parseInt(matches[1], 10);
     aggregated.failed += parseInt(matches[2], 10);
     aggregated.dubious += parseInt(matches[3], 10);
-    aggregated.skipped += parseInt(matches[3], 10);
+    aggregated.skipped += parseInt(matches[4], 10);
   }
 
   // maybe clean output

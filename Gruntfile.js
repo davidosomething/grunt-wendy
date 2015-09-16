@@ -31,6 +31,9 @@ module.exports = function (grunt) {
           cli: ['--foo=bar']
         },
         files: { src: ['test/a*.js'] }
+      },
+      dubious: {
+        files: { src: ['test/c*.js'] }
       }
     },
 
