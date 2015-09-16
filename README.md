@@ -1,6 +1,6 @@
 # grunt-wendy
 
-> With this grunt.js task you can run tests with CasperJS.
+> CasperJS test runner built for GruntJS
 
 This was originally a fork of [ronaldlokers/grunt-casperjs] but with more
 features:
