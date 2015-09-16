@@ -7,6 +7,7 @@ features:
   * [custom casper test runners]
   * no grunt output (`silent` flag of grunt-casperjs is always on)
   * custom grunt exit status (warn on skips/fatal on casper error)
+  * Output parsing and aggregated results
 
 ## Getting Started
 
@@ -24,7 +25,7 @@ npm install --save-dev grunt-wendy
 One the plugin has been installed, it may be enabled inside your Gruntfile with
 this line of JavaScript:
 
-```js
+```javascript
 grunt.loadNpmTasks('grunt-wendy');
 ```
 
@@ -39,7 +40,7 @@ passed into `grunt.initConfig()`.
 
 #### Default Options
 
-```js
+```javascript
 grunt.initConfig({
   wendy: {
     options: {
