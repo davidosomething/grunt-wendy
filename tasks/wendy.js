@@ -4,63 +4,18 @@ var taskName = 'wendy';
 var taskDescription = 'CasperJs test runner';
 
 var async = require('async');
-var path = require('path');
-var fs = require('fs');
-
-/**
- * getCasperBinary
- *
- * @return {string}
- */
-function getCasperBinary() {
-  // Use this task's deps?
-  var bin = './node_modules/.bin/casperjs';
-  if (!fs.existsSync(bin)) {
-    bin = path.join(__dirname, '..', '..', 'node_modules', '.bin', 'casperjs');
-    if (!fs.existsSync(bin)) {
-      bin = path.join(__dirname, '..', '..', '..', 'casperjs', 'bin', 'casperjs');
-    }
-  }
-  if (process.platform === 'win32') {
-    bin += '.cmd';
-  }
-  return bin;
-}
+var getCasperBinary = require('./lib/getCasperBinary.js');
+var parseCasperOutput = require('./lib/parseCasperOutput.js');
+var logAggregatedResults = require('./lib/logAggregatedResults.js');
+var getFilepaths = require('./lib/getFilepaths.js');
 
 module.exports = function (grunt) {
 
-  var passed = 0;
-  var failed = 0;
-  var dubious = 0;
-  var skipped = 0;
-
-  var parseOutput = function (buf, options) {
-    var cast = String(buf);
-    var output = '';
-
-    // aggregate results
-    if (cast.indexOf('executed in') > -1) {
-      var matches = cast.match(/(\d+) passed.*(\d+) failed.*(\d+) dubious.*(\d+) skipped/);
-      passed += parseInt(matches[1], 10);
-      failed += parseInt(matches[2], 10);
-      dubious += parseInt(matches[3], 10);
-      skipped += parseInt(matches[3], 10);
-    }
-
-    // maybe clean output
-    if (options.clean) {
-      if (cast.indexOf('Test file:') > -1) {
-        output += '\n  ' + cast;
-      }
-      else {
-        output = cast.replace(/^\w*/, '  ');
-      }
-    }
-    else {
-      output = cast;
-    }
-
-    process.stdout.write(output);
+  var aggregated = {
+    passed: 0,
+    failed: 0,
+    dubious: 0,
+    skipped: 0,
   };
 
   grunt.registerMultiTask(taskName, taskDescription, function () {
@@ -94,26 +49,14 @@ module.exports = function (grunt) {
     }
 
     // Iterate over all specified file groups.
-    var filepaths = [];
-    this.files.forEach(function (file) {
-      file.src.filter(function (filepath) {
-        // Warn on and remove invalid source files (if nonull was set).
-        if (!grunt.file.exists(filepath)) {
-          grunt.log.warn('Source file "' + filepath + '" not found.');
-          return false;
-        }
-        else {
-          filepaths.push(filepath);
-          return true;
-        }
-      });
-    });
+    var filepaths = getFilepaths(grunt, this.files)
 
     var asyncType = options.async;
     var asyncFn = async[asyncType];
 
     asyncFn(filepaths, function filepathIterator(filepath, next) {
 
+      // spawn casper process
       var casperProcess;
       casperProcess = grunt.util.spawn({
         cmd: command,
@@ -122,23 +65,17 @@ module.exports = function (grunt) {
         next();
       });
 
+      // pipe spawned process outputs
       casperProcess.stdout.on('data', function (buf) {
-        parseOutput(buf, options);
+        parseCasperOutput(buf, options, aggregated);
       });
       casperProcess.stderr.on('data', function (buf) {
-        parseOutput(buf, options);
+        parseCasperOutput(buf, options, aggregated);
       });
 
-    }, function (err, results) {
-
-      grunt.log.subhead('  Aggregated results:');
-      grunt.log.writeln('  ' + passed + ' passed');
-      grunt.log.writeln('  ' + failed + ' failed');
-      grunt.log.writeln('  ' + dubious + ' dubious');
-      grunt.log.writeln('  ' + skipped + ' skipped');
-
+    }, function (err, res) {
+      logAggregatedResults(grunt, aggregated);
       done();
-
     });
 
   });
