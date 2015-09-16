@@ -2,6 +2,13 @@
 
 > CasperJS test runner built for GruntJS
 
+[![Upstream][upstreamBadge]][upstreamLink]
+[![NPM version][versionBadge]][versionLink]
+[![Travis CI build status][travisBadge]][travisLink]
+[![David dependency status][davidBadge]][davidLink]
+[![Development Dependency Status][davidDevBadge]][davidDevLink]
+<br>[![npm Badge][nodeiBadge]]([nodeiLink])
+
 This was originally a fork of [ronaldlokers/grunt-casperjs] but with more
 features:
   * [custom casper test runners]
@@ -9,14 +16,9 @@ features:
   * custom grunt exit status (warn on skips/fatal on casper error)
   * Output parsing and aggregated results
 
+## Screenshot
+
 ![Example output](https://raw.githubusercontent.com/davidosomething/grunt-wendy/master/screenshot.png)
-
-## Status
-
-| Service  | Status
-| -------: | :--------
-| Build    | [![Travis CI build status][travisBadge]][travisLink]
-| NPM      | [![David dependency status][davidBadge]][davidLink] [![Development Dependency Status][davidDevBadge]][davidDevLink] [![Peer Dependency Status][davidPeerBadge]][davidPeerLink]
 
 ## Getting Started
 
@@ -165,7 +167,11 @@ Follow the standards of the included eslint and markdownlint.
 [davidLink]:        https://david-dm.org/davidosomething/grunt-wendy#info=dependencies
 [davidDevBadge]:    https://david-dm.org/davidosomething/grunt-wendy/dev-status.png?theme=shields.io
 [davidDevLink]:     https://david-dm.org/davidosomething/grunt-wendy#info=devDependencies
-[davidPeerBadge]:   https://david-dm.org/davidosomething/grunt-wendy/peer-status.png?theme=shields.io
-[davidPeerLink]:    https://david-dm.org/davidosomething/grunt-wendy#info=peerDependencies
+[nodeiBadge]:       https://nodei.co/npm/grunt-wendy.png
+[nodeiLink]:        https://nodei.co/npm/grunt-wendy/
 [travisLink]:       https://travis-ci.org/davidosomething/grunt-wendy
 [travisBadge]:      https://travis-ci.org/davidosomething/grunt-wendy.svg?branch=master
+[upstreamBadge]:    https://img.shields.io/badge/upstream-GitHub-lightgrey.svg
+[upstreamLink]:     https://github.com/davidosomething/grunt-wendy
+[versionBadge]:     https://badge.fury.io/js/grunt-wendy.svg
+[versionLink]:      https://badge.fury.io/js/grunt-wendy
