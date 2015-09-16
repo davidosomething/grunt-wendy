@@ -14,7 +14,7 @@ var fs = require('fs');
  */
 function getCasperBinary() {
   // Use this task's deps?
-  var bin = "./node_modules/.bin/casperjs";
+  var bin = './node_modules/.bin/casperjs';
   if (!fs.existsSync(bin)) {
     bin = path.join(__dirname, '..', '..', 'node_modules', '.bin', 'casperjs');
     if (!fs.existsSync(bin)) {
@@ -22,7 +22,7 @@ function getCasperBinary() {
     }
   }
   if (process.platform === 'win32') {
-    bin += ".cmd";
+    bin += '.cmd';
   }
   return bin;
 }
@@ -49,14 +49,11 @@ module.exports = function (grunt) {
 
     // maybe clean output
     if (options.clean) {
-      if (cast.indexOf('executed in') > -1) {
-        output = '  ' + cast;
-      }
-      else if (cast.indexOf('Test file:') > -1) {
-        output += "\n  " + cast;
+      if (cast.indexOf('Test file:') > -1) {
+        output += '\n  ' + cast;
       }
       else {
-        output = '  ' + cast;
+        output = cast.replace(/^\w*/, '  ');
       }
     }
     else {
@@ -79,7 +76,7 @@ module.exports = function (grunt) {
 
     // phantom settings
     var phantomBinPath = require('phantomjs').path;
-    process.env["PHANTOMJS_EXECUTABLE"] = phantomBinPath;
+    process.env['PHANTOMJS_EXECUTABLE'] = phantomBinPath;
 
     // casper settings
     var command = getCasperBinary();
