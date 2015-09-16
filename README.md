@@ -126,17 +126,6 @@ wendy: {
 }
 ```
 
-#### Install script and CasperJS version
-
-The install.js script is responsible for searching for existing CasperJS
-installations in the path. If found, that CasperJS will be used. If not found,
-a stable version of CasperJS will be installed.
-
-grunt-wendy was tested with the currently stable version of CasperJS, 1.1.x
-
-**If you would like to use a different version of casperjs**, install it
-yourself globally before installing grunt-wendy. It will use that one.
-
 ## Contributing
 
 In lieu of a formal styleguide, take care to maintain the existing coding style.
