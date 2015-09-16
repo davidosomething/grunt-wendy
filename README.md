@@ -145,7 +145,10 @@ Follow the standards of the included eslint and markdownlint.
 
 ## CHANGELOG
 
-* 0.0.1 Forked from [ronaldlokers/grunt-casperjs]
+* 0.0.2
+    * Split into modules in `lib/`
+* 0.0.1
+    * Forked from [ronaldlokers/grunt-casperjs]
     * Refactor into single grunt task module
     * Rename task from `casperjs` to `wendy`
     * Changed `casperjsOptions` option key to `cli`
