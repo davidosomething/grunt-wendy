@@ -1,0 +1,62 @@
+{
+  "name": "grunt-wendy",
+  "description": "CasperJS test runner",
+  "version": "0.0.1",
+  "homepage": "https://github.com/davidosomething/grunt-wendy",
+  "author": {
+    "name": "David O'Trakoun",
+    "email": "me@davidosomething.com",
+    "url": "http://davidosomething.com"
+  },
+  "contributors": [
+    {
+      "name": "Ronald Lokers",
+      "email": "ronaldlokers@me.com",
+      "url": "http://www.ronaldlokers.nl"
+    },
+    {
+      "name": "Nick Sullivan",
+      "email": "nick@sullivanflock.com",
+      "url": "http://creationeer.me"
+    },
+    {
+      "name": "Jatin Chopra",
+      "url": "https://github.com/jatin-"
+    },
+    {
+      "name": "David O'Trakoun",
+      "email": "me@davidosomething.com",
+      "url": "http://davidosomething.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/davidosomething/grunt-wendy.git"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "dependencies": {
+    "async": "^1.4.2",
+    "casperjs": "1.1.0-beta3",
+    "phantomjs": "1.9.11"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.0"
+  },
+  "keywords": [
+    "gruntplugin",
+    "casper",
+    "casperjs",
+    "headless",
+    "phantom",
+    "phantomjs",
+    "testing",
+    "e2e",
+    "integration"
+  ]
+}
