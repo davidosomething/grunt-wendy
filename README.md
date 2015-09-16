@@ -153,6 +153,7 @@ Follow the standards of the included eslint and markdownlint.
 [Grunt]: http://gruntjs.com/
 [Getting Started]: http://gruntjs.com/getting-started
 [Gruntfile]: http://gruntjs.com/sample-gruntfile
+[ronaldlokers/grunt-casperjs]: https://github.com/ronaldlokers/grunt-casperjs
 [ronaldlokers]: https://github.com/ronaldlokers/grunt-casperjs
 [custom casper test runners]: http://casperjs.readthedocs.org/en/latest/testing.html#extending-casper-for-testing
 [casper's included test runner]: https://github.com/n1k0/casperjs/blob/master/tests/run.js
