@@ -14,6 +14,10 @@ module.exports = function (grunt) {
       task: ['tasks/wendy.js']
     },
 
+    mdlint: {
+      readme: ['README.md']
+    },
+
     // Configuration to be run (and then tested).
     wendy: {
       options: {
@@ -35,6 +39,7 @@ module.exports = function (grunt) {
   grunt.loadTasks('tasks');
 
   grunt.loadNpmTasks('grunt-eslint');
+  grunt.loadNpmTasks('grunt-mdlint');
 
   grunt.registerMultiTask('test', function () {
     if (this.target === 'series') {
@@ -45,6 +50,8 @@ module.exports = function (grunt) {
     }
   });
 
-  grunt.registerTask('default', ['eslint', 'test']);
+  grunt.registerTask('lint', ['eslint', 'mdlint']);
+
+  grunt.registerTask('default', ['lint', 'test']);
 
 };

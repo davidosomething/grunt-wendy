@@ -74,8 +74,8 @@ wendy: {
   options: {
     async: 'each'
   },
-  inparallel: ['tests/e2e/a/*.js']
-  inparallel: ['tests/e2e/b/*.js']
+  inparallel: ['tests/e2e/a/*.js'],
+  inparallel2: ['tests/e2e/b/*.js']
 }
 ```
 
