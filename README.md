@@ -137,6 +137,8 @@ using [Grunt].
 Follow the standards of the included eslint and markdownlint.
 
 ## CHANGELOG
+* 0.0.4
+    * Use `grunt.util.linefeed` for better Windows output
 * 0.0.3
     * Add test for dubious output
     * Fix aggregated output (skipped and dubious showing same result)

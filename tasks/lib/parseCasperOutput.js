@@ -1,4 +1,4 @@
-module.exports = function (buf, options, aggregated) {
+module.exports = function (grunt, buf, options, aggregated) {
   var cast = String(buf);
   var output = '';
 
@@ -14,7 +14,7 @@ module.exports = function (buf, options, aggregated) {
   // maybe clean output
   if (options.clean) {
     if (cast.indexOf('Test file:') > -1) {
-      output += '\n  ' + cast;
+      output += grunt.util.linefeed + '  ' + cast;
     }
     else {
       output = cast.replace(/^\w*/, '  ');

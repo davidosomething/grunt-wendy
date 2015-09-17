@@ -67,10 +67,10 @@ module.exports = function (grunt) {
 
       // pipe spawned process outputs
       casperProcess.stdout.on('data', function (buf) {
-        parseCasperOutput(buf, options, aggregated);
+        parseCasperOutput(grunt, buf, options, aggregated);
       });
       casperProcess.stderr.on('data', function (buf) {
-        parseCasperOutput(buf, options, aggregated);
+        parseCasperOutput(grunt, buf, options, aggregated);
       });
 
     }, function (err, res) {
