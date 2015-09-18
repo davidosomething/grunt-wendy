@@ -5,8 +5,10 @@ module.exports = function (grunt) {
   // Project configuration.
   grunt.initConfig({
     test: {
+      series: {},
       parallel: {},
-      series: {}
+      parallelFiltered: {},
+      nofail: {},
     },
 
     eslint: {
@@ -43,10 +45,18 @@ module.exports = function (grunt) {
         },
         files: { src: ['test/a*.js'] }
       },
-      dubious: {
+      dubious: { // don't fail
+        options: {
+          fail: [],
+          warn: ['dubious', 'failed']
+        },
         files: { src: ['test/c*.js'] }
       },
-      fail: {
+      fail: { // don't fail
+        options: {
+          fail: [],
+          warn: ['dubious', 'failed']
+        },
         files: { src: ['test/d*.js'] }
       }
     },
@@ -64,6 +74,12 @@ module.exports = function (grunt) {
     }
     else if (this.target === 'parallel') {
       grunt.task.run(['wendy:parallel']);
+    }
+    else if (this.target === 'parallelFiltered') {
+      grunt.task.run(['wendy:parallelFiltered']);
+    }
+    else if (this.target === 'nofail') {
+      grunt.task.run(['wendy:dubious', 'wendy:fail']);
     }
   });
 
