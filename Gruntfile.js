@@ -32,6 +32,17 @@ module.exports = function (grunt) {
         },
         files: { src: ['test/a*.js'] }
       },
+      parallelFiltered: {
+        options: {
+          async: 'each',
+          cli: ['--foo=bar'],
+          formatterOptions: {
+            whitespace: true,
+            filter: /(Test file:)|(tests executed)/
+          }
+        },
+        files: { src: ['test/a*.js'] }
+      },
       dubious: {
         files: { src: ['test/c*.js'] }
       },

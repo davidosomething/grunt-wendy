@@ -57,10 +57,13 @@ grunt.initConfig({
   wendy: {
     options: {
       async: 'eachSeries',
-      clean: true,
       cli: [],
       runner: 'test',
       formatter: formatter, // function in tasks/lib/formatter.js
+      formatterOptions: {
+        whitespace: true,
+        filter: null
+      },
       fail: ['failed'],
       warn: ['dubious', 'skipped']
     },
@@ -84,23 +87,6 @@ wendy: {
   },
   inparallel: ['tests/e2e/a/*.js'],
   inparallel2: ['tests/e2e/b/*.js']
-}
-```
-
-#### Clean
-
-This task tries to clean up the casper output a bit and outputs aggregated
-test results when multiple suites (multiple files) are run in a single task.
-
-You can set the option to false to disable it. **The default formatter uses this
-option.**
-
-```javascript
-wendy: {
-  options: {
-    clean: false
-  },
-  tests: ['tests/e2e/**/*.js']
 }
 ```
 
@@ -153,6 +139,31 @@ The `data` argument is always a string, a line from casper's stdout or stderr.
 
 The default formatter uses the `clean` option as well. See its source here for
 an example: [formatter.js]
+
+#### Formatter Options
+
+This task tries to clean up the casper output whitespace and outputs aggregated
+test results when multiple suites (multiple files) are run in a single task.
+
+**If you change the `formatter` this option may not apply.**
+
+* `whitespace`: boolean -- true to clean up casper whitespace
+* `filter`: regex -- anything that matches this filter will not be output
+
+```javascript
+wendy: {
+  options: {
+    formatterOptions: {
+      // don't try to clean up whitespace
+      whitespace: false,        
+
+      // don't output lines saying 'Test file:' name and the suite summary
+      filter: /(Test file:)|(tests executed)/
+    }
+  },
+  tests: ['tests/e2e/**/*.js']
+}
+```
 
 #### Grunt exit status
 

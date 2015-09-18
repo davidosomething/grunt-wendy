@@ -17,12 +17,16 @@ module.exports = function wendyModule(grunt) {
   // Outside of the task scope so we can aggregate across entire task queue
   grunt.registerMultiTask(taskName, taskDescription, function wendyTask() {
     var done = this.async();
+
     var options = this.options({
       async:       'eachSeries',
-      clean:       true,
       cli:         [],
       runner:      'test',
       formatter:   formatter,
+      formatterOptions: {
+        whitespace: true,
+        filter: null
+      },
       fail:        ['failed'],
       warn:        ['dubious', 'skipped'],
       _aggregated: {}
