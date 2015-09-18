@@ -192,6 +192,9 @@ using [Grunt].
 Follow the standards of the included eslint and markdownlint.
 
 ## CHANGELOG
+* 1.0.0
+    * Change `clean` to `formatterOptions.whitespace`
+    * Add `filter` to formatterOptions
 * 0.0.6
     * Add `fail` and `warn` options
 * 0.0.5
