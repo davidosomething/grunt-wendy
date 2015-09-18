@@ -220,6 +220,8 @@ using [Grunt].
 Follow the standards of the included eslint and markdownlint.
 
 ## CHANGELOG
+* 1.0.3
+    * Don't need lodash, removed
 * 1.0.2
     * Logo :p
 * 1.0.1
