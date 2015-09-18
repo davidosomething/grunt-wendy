@@ -7,7 +7,7 @@
 [![Travis CI build status][travisBadge]][travisLink]
 [![David dependency status][davidBadge]][davidLink]
 [![Development Dependency Status][davidDevBadge]][davidDevLink]
-<br>[![npm Badge][nodeiBadge]]([nodeiLink])
+<br>[![npm Badge][nodeiBadge]][nodeiLink]
 
 This was originally a fork of [ronaldlokers/grunt-casperjs] but with more
 features:
