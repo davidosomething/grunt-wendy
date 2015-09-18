@@ -34,6 +34,9 @@ module.exports = function (grunt) {
       },
       dubious: {
         files: { src: ['test/c*.js'] }
+      },
+      fail: {
+        files: { src: ['test/d*.js'] }
       }
     },
 

@@ -88,7 +88,8 @@ wendy: {
 This task tries to clean up the casper output a bit and outputs aggregated
 test results when multiple suites (multiple files) are run in a single task.
 
-You can set the option to false to disable it.
+You can set the option to false to disable it. **The default formatter uses this
+option.**
 
 ```javascript
 wendy: {
@@ -114,6 +115,28 @@ wendy: {
 }
 ```
 
+#### Formatter
+
+This task captures all casper output and allows formatting of that output.
+The formatter can be customized by passing in a function like so:
+
+```javascript
+wendy: {
+  options: {
+    formatter: function (grunt, options, data) {
+      grunt.log.write(data);
+    }
+  },
+  files: ['tests/e2e/**/*.js']
+}
+```
+
+The `data` argument is always a string, a line from casper's stdout or stderr.
+
+The default formatter uses the `clean` option as well. See its source here for
+an example: [formatter.js]
+
+
 #### CLI Options
 
 CasperJS CLI options (including user defined ones) can be passed in using
@@ -137,6 +160,8 @@ using [Grunt].
 Follow the standards of the included eslint and markdownlint.
 
 ## CHANGELOG
+* 0.0.5
+    * Add `formatter` option
 * 0.0.4
     * Use `grunt.util.linefeed` for better Windows output
 * 0.0.3
@@ -164,6 +189,7 @@ Follow the standards of the included eslint and markdownlint.
 [ronaldlokers]: https://github.com/ronaldlokers/grunt-casperjs
 [custom casper test runners]: http://casperjs.readthedocs.org/en/latest/testing.html#extending-casper-for-testing
 [casper's included test runner]: https://github.com/n1k0/casperjs/blob/master/tests/run.js
+[formatter.js]: https://github.com/davidosomething/grunt-wendy/blob/master/tasks/lib/formatter.js
 
 [davidBadge]:       https://david-dm.org/davidosomething/grunt-wendy.png?theme=shields.io
 [davidLink]:        https://david-dm.org/davidosomething/grunt-wendy#info=dependencies
