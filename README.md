@@ -1,4 +1,4 @@
-# grunt-wendy
+# <img src="https://raw.githubusercontent.com/davidosomething/grunt-wendy/master/wendy.png" alt="grunt-wendy Logo" valign="middle" style="width: 1.5em;"> grunt-wendy
 
 > CasperJS test runner built for GruntJS
 
