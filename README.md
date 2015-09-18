@@ -13,8 +13,9 @@ This was originally a fork of [ronaldlokers/grunt-casperjs] but with more
 features:
   * [custom casper test runners]
   * no grunt output (`silent` flag of grunt-casperjs is always on)
-  * custom grunt exit status (warn on skips/fatal on casper error)
-  * Output parsing and aggregated results
+  * customizable output parsing
+  * aggregated results across all casper tasks run
+  * custom grunt exit status (warns on skips/dubious instead of failing)
 
 ## Screenshot
 
@@ -58,7 +59,10 @@ grunt.initConfig({
       async: 'eachSeries',
       clean: true,
       cli: [],
-      runner: null
+      runner: 'test',
+      formatter: formatter, // function in tasks/lib/formatter.js
+      fail: ['failed'],
+      warn: ['dubious', 'skipped']
     },
     files: ['tests/e2e/**/*.js']
   },
@@ -100,6 +104,20 @@ wendy: {
 }
 ```
 
+#### CLI Options
+
+CasperJS CLI options (including user defined ones) can be passed in using
+'cli' in the options object
+
+```javascript
+wendy: {
+  options: {
+    cli: ['--foo=bar', '--no-colors']
+  },
+  files: ['tests/e2e/**/*.js']
+}
+```
+
 #### Runner
 
 The task uses [casper's included test runner] by default. If you'd like to use
@@ -136,16 +154,19 @@ The `data` argument is always a string, a line from casper's stdout or stderr.
 The default formatter uses the `clean` option as well. See its source here for
 an example: [formatter.js]
 
+#### Grunt exit status
 
-#### CLI Options
-
-CasperJS CLI options (including user defined ones) can be passed in using
-'cli' in the options object
+Instead of failing on dubious tests or passing when tests are skipped, this
+task only fails when a test actually fails. You can go back to default grunt
+behavior, or customize your own using the `fail` and `warn` options.
+The options take an array with values `passed`, `failed`, `dubious`, and
+`skipped`.
 
 ```javascript
 wendy: {
   options: {
-    cli: ['--foo=bar', '--no-colors']
+    fail: ['failed'], // fail the task if any tests failed
+    warn: ['dubious'] // grunt warning when tests dubious
   },
   files: ['tests/e2e/**/*.js']
 }
@@ -160,6 +181,8 @@ using [Grunt].
 Follow the standards of the included eslint and markdownlint.
 
 ## CHANGELOG
+* 0.0.6
+    * Add `fail` and `warn` options
 * 0.0.5
     * Add `formatter` option
 * 0.0.4

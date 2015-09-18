@@ -18,11 +18,13 @@ module.exports = function wendyModule(grunt) {
   grunt.registerMultiTask(taskName, taskDescription, function wendyTask() {
     var done = this.async();
     var options = this.options({
-      async:     'eachSeries',
-      clean:     true,
-      cli:       [],
-      runner:    'test',
-      formatter: formatter,
+      async:       'eachSeries',
+      clean:       true,
+      cli:         [],
+      runner:      'test',
+      formatter:   formatter,
+      fail:        ['failed'],
+      warn:        ['dubious', 'skipped'],
       _aggregated: {}
     });
 
@@ -33,7 +35,24 @@ module.exports = function wendyModule(grunt) {
     var asyncFn = async[options.async];
     var asyncDone = function asyncDone(err, res) {
       logAggregatedResults(grunt, options._aggregated);
-      done(); // grunt done
+
+      var isSuccess = true;
+      options.fail.forEach(function (key) {
+        if (options._aggregated[key]) {
+          isSuccess = false;
+          grunt.log.writeln();
+          grunt.log.error('[ERROR] There were tests with a status of ' + key);
+        }
+      });
+
+      options.warn.forEach(function (key) {
+        if (options._aggregated[key]) {
+          grunt.log.writeln();
+          grunt.log.error('[WARNING] There were tests with a status of ' + key);
+        }
+      });
+
+      done(isSuccess); // grunt done
     };
     asyncFn(filepaths, filepathIterator(grunt, options), asyncDone);
   });
