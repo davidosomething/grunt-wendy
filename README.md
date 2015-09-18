@@ -72,6 +72,34 @@ grunt.initConfig({
 })
 ```
 
+#### Some nice options for Jenkins / CI servers
+
+```javascript
+grunt.initConfig({
+  wendy: {
+    options: {
+      async: 'each',
+      cli: [
+        '--no-colors',          // jenkins hates color
+        '--log-level=error',    // hide casper logging
+        '--web-security=false'  // phantomjs option
+      ],
+      formatterOptions: {
+        whitespace: true,
+        // filter out useless headers since we're running async and they'll
+        // be out of order
+        filter: /(Test file:)|(tests executed)|(^\w*#)/
+      },
+      fail: ['failed'],   // fail on failed
+      warn: ['dubious']   // don't fail on dubious
+    },
+    files: ['tests/e2e/**/*.js']
+  }
+});
+```
+
+### Options
+
 #### Async
 
 Tasks are run in series by default (one after the other). To change how tests
@@ -192,6 +220,8 @@ using [Grunt].
 Follow the standards of the included eslint and markdownlint.
 
 ## CHANGELOG
+* 1.0.1
+    * Readme update
 * 1.0.0
     * Change `clean` to `formatterOptions.whitespace`
     * Add `filter` to formatterOptions
