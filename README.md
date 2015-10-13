@@ -11,11 +11,12 @@
 
 This was originally a fork of [ronaldlokers/grunt-casperjs] but with more
 features:
-  * [custom casper test runners]
-  * no grunt output (`silent` flag of grunt-casperjs is always on)
-  * customizable output parsing
-  * aggregated results across all casper tasks run
-  * custom grunt exit status (warns on skips/dubious instead of failing)
+
+* [custom casper test runners]
+* no grunt output (`silent` flag of grunt-casperjs is always on)
+* customizable output parsing
+* aggregated results across all casper tasks run
+* custom grunt exit status (warns on skips/dubious instead of failing)
 
 ## Screenshot
 
