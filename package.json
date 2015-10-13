@@ -1,7 +1,7 @@
 {
   "name": "grunt-wendy",
   "description": "CasperJS test runner",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "homepage": "https://github.com/davidosomething/grunt-wendy",
   "author": {
     "name": "David O'Trakoun",
@@ -44,6 +44,7 @@
   },
   "devDependencies": {
     "grunt": "~0.4.0",
+    "grunt-bump": "^0.6.0",
     "grunt-eslint": "^17.1.0",
     "grunt-mdlint": "0.0.1"
   },

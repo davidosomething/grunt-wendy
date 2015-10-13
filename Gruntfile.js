@@ -4,6 +4,19 @@ module.exports = function (grunt) {
 
   // Project configuration.
   grunt.initConfig({
+    bump: {
+      options: {
+        files: ['package.json'],
+        updateConfigs: [],
+        commit: false,
+        createTag: false,
+        push: false,
+        globalReplace: false,
+        prereleaseName: false,
+        regExp: false
+      }
+    },
+
     test: {
       series: {},
       parallel: {},
@@ -65,6 +78,7 @@ module.exports = function (grunt) {
 
   grunt.loadTasks('tasks');
 
+  grunt.loadNpmTasks('grunt-bump');
   grunt.loadNpmTasks('grunt-eslint');
   grunt.loadNpmTasks('grunt-mdlint');
 

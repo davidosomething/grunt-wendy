@@ -220,6 +220,8 @@ using [Grunt].
 Follow the standards of the included eslint and markdownlint.
 
 ## CHANGELOG
+* 1.0.4
+    * Ensure utf-8 output on process.stdout.write
 * 1.0.3
     * Don't need lodash, removed
 * 1.0.2

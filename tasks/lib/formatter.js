@@ -1,3 +1,5 @@
+var write = process.stdout.write.bind(process.stdout);
+
 /**
  * formatCasperOutput
  *
@@ -18,15 +20,15 @@ module.exports = function formatCasperOutput(grunt, options, data) {
     // format whitespace?
     if (options.formatterOptions.whitespace) {
       if (data.indexOf('Test file:') > -1) {
-        process.stdout.write(grunt.util.linefeed);
+        write(grunt.util.linefeed, 'utf8');
       }
-      process.stdout.write('  ' + data);
+      write('  ' + data, 'utf8');
       return;
     }
   }
 
   // default -- straight output
-  process.stdout.write(data);
+  write(data, 'utf8');
   return;
 
 };
