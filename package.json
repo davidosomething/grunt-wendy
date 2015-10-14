@@ -1,7 +1,7 @@
 {
   "name": "grunt-wendy",
   "description": "CasperJS test runner",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "homepage": "https://github.com/davidosomething/grunt-wendy",
   "author": {
     "name": "David O'Trakoun",
@@ -37,10 +37,12 @@
   "engines": {
     "node": ">= 0.8.0"
   },
+  "peerDependencies": {
+    "phantomjs": "~1.9.11"
+  },
   "dependencies": {
     "async": "^1.4.2",
-    "casperjs": "1.1.0-beta3",
-    "phantomjs": "1.9.11"
+    "casperjs": "1.1.0-beta3"
   },
   "devDependencies": {
     "grunt": "~0.4.0",

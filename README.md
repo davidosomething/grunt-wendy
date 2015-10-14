@@ -26,6 +26,14 @@ features:
 
 This plugin requires Grunt `~0.4.0`
 
+This plugin requires phantomjs `~1.9.11`
+It is specified as a peer dependency, so be sure to install the version of your
+choosing, e.g.
+
+* npm package version 1.9.11 on OSX for phantomJs 1.9.7 (least buggy version)
+* npm package version >=1.9.15 on node.js 4.0 or io.js (the only installable
+  versions due to other dependencies)
+
 If you haven't used [Grunt] before, be sure to check out the [Getting Started]
 guide, as it explains how to create a [Gruntfile] as well as install and use
 Grunt plugins. Once you're familiar with that process, you may install this
@@ -221,6 +229,8 @@ using [Grunt].
 Follow the standards of the included eslint and markdownlint.
 
 ## CHANGELOG
+* 1.0.5
+    * phantomjs is now a peer dependency
 * 1.0.4
     * Ensure utf-8 output on process.stdout.write
 * 1.0.3
