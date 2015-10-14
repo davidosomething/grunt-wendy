@@ -229,6 +229,8 @@ using [Grunt].
 Follow the standards of the included eslint and markdownlint.
 
 ## CHANGELOG
+* 2.0.0
+    * fix travis build by installing phantom, major bump
 * 1.0.5
     * phantomjs is now a peer dependency
 * 1.0.4
