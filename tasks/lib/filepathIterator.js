@@ -1,5 +1,6 @@
 var getCasperBinary = require('./getCasperBinary.js');
 var aggregate       = require('./aggregate.js');
+var parseFlags      = require('./parseFlags.js');
 
 var casperBin = getCasperBinary();
 
@@ -16,6 +17,9 @@ module.exports = function filepathIteratorModule(grunt, options) {
   if (options.cli && options.cli.length > 0) {
     casperArgs = casperArgs.concat(options.cli);
   }
+
+  // map grunt:wendy flags -> casper args
+  casperArgs = casperArgs.concat(parseFlags(grunt.option.flags()));
 
   /**
     * spawnOut

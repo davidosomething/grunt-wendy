@@ -30,7 +30,7 @@ This plugin requires phantomjs `~1.9.11`
 It is specified as a peer dependency, so be sure to install the version of your
 choosing, e.g.
 
-* npm package version 1.9.11 on OSX for phantomJs 1.9.7 (least buggy version)
+* npm package version 1.9.11 on OSX for phantomjs 1.9.7 (least buggy version)
 * npm package version >=1.9.15 on node.js 4.0 or io.js (the only installable
   versions due to other dependencies)
 
@@ -107,6 +107,21 @@ grunt.initConfig({
 });
 ```
 
+### Reading CLI options from Grunt
+
+CasperJS CLI options can also be passed directly from the command line when
+running `grunt`. To use this feature, prefix the args with `wendy` and they'll
+be passed through from grunt to casper. E.g.
+
+    grunt wendy:myTests --wendy-somearg --wendy-server=http://my.dev --baz=z
+
+Will pass the args to casper as if you had run the command:
+
+    casper test --somearg --server=http://my.dev myTests/
+
+Note that the `wendy` is removed, and args not beginning with wendy, like `baz`
+were not included.
+
 ### Options
 
 #### Async
@@ -140,6 +155,8 @@ wendy: {
   files: ['tests/e2e/**/*.js']
 }
 ```
+
+See also [Reading CLI options from grunt](#reading-cli-options-from-grunt).
 
 #### Runner
 
@@ -192,7 +209,7 @@ wendy: {
   options: {
     formatterOptions: {
       // don't try to clean up whitespace
-      whitespace: false,        
+      whitespace: false,
 
       // don't output lines saying 'Test file:' name and the suite summary
       filter: /(Test file:)|(tests executed)/
@@ -229,6 +246,9 @@ using [Grunt].
 Follow the standards of the included eslint and markdownlint.
 
 ## CHANGELOG
+
+* 2.1.0
+    * Add custom cli flag support, passing `--wendy` cli flags to casper
 * 2.0.0
     * fix travis build by installing phantom, major bump
 * 1.0.5
