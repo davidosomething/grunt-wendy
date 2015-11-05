@@ -247,6 +247,8 @@ Follow the standards of the included eslint and markdownlint.
 
 ## CHANGELOG
 
+* 2.1.1
+    * License update
 * 2.1.0
     * Add custom cli flag support, passing `--wendy` cli flags to casper
 * 2.0.0
