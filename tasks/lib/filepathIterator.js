@@ -43,8 +43,16 @@ module.exports = function filepathIteratorModule(grunt, options) {
   return function filepathIterator(filepath, next) {
     var spawnOpts = {
       cmd:  casperBin,
+
+      // casperjs ARGS
       args: casperArgs.concat(filepath)
     };
+
+    // nodeSpawnOptions
+    // See https://nodejs.org/api/child_process.html#child_process_child_process_exec_command_options_callback
+    if (options.spawnOpts) {
+      spawnOpts.opts = options.spawnOpts;
+    }
 
     /**
      * onFilepathDone

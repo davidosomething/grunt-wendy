@@ -12,11 +12,11 @@
 This was originally a fork of [ronaldlokers/grunt-casperjs] but with more
 features:
 
-* [custom casper test runners]
-* no grunt output (`silent` flag of grunt-casperjs is always on)
-* customizable output parsing
-* aggregated results across all casper tasks run
-* custom grunt exit status (warns on skips/dubious instead of failing)
+- [custom casper test runners]
+- no grunt output (`silent` flag of grunt-casperjs is always on)
+- customizable output parsing
+- aggregated results across all casper tasks run
+- custom grunt exit status (warns on skips/dubious instead of failing)
 
 ## Screenshot
 
@@ -30,8 +30,8 @@ This plugin requires phantomjs `~1.9.11`
 It is specified as a peer dependency, so be sure to install the version of your
 choosing, e.g.
 
-* npm package version 1.9.11 on OSX for phantomjs 1.9.7 (least buggy version)
-* npm package version >=1.9.15 on node.js 4.0 or io.js (the only installable
+- npm package version 1.9.11 on OSX for phantomjs 1.9.7 (least buggy version)
+- npm package version >=1.9.15 on node.js 4.0 or io.js (the only installable
   versions due to other dependencies)
 
 If you haven't used [Grunt] before, be sure to check out the [Getting Started]
@@ -66,6 +66,7 @@ grunt.initConfig({
   wendy: {
     options: {
       async: 'eachSeries',
+      spawnOpts: null,
       cli: [],
       runner: 'test',
       formatter: formatter, // function in tasks/lib/formatter.js
@@ -129,8 +130,8 @@ were not included.
 Tasks are run in series by default (one after the other). To change how tests
 are run, set the async option to a node async compatible value such as:
 
-* `each` - run in parallel
-* `eachSeries` - run in series
+- `each` - run in parallel
+- `eachSeries` - run in series
 
 ```javascript
 wendy: {
@@ -141,6 +142,34 @@ wendy: {
   inparallel2: ['tests/e2e/b/*.js']
 }
 ```
+
+#### Node child_process options
+
+The task spawns casperJs binary instances as child processes of node. The raw
+`child_process.exec` options can be modified with the `spawnOpts` task option:
+
+```javascript
+wendy: {
+  options: {
+    spawnOpts: {
+      cwd: '../',
+      env: {
+        SERVER:   'QA',
+        API_KEY:  'abc123'
+      },
+    }
+  },
+  inparallel: ['tests/e2e/a/*.js'],
+  inparallel2: ['tests/e2e/b/*.js']
+}
+```
+
+Of note is that you can change where you're running CasperJS from, e.g.
+in case your node_modules folder is for some reason not at the root of your 
+project and you want to run CasperJS from a different directory to so you can
+require those modules.
+
+Most likely you won't need this or will just want the `env` key values.
 
 #### CLI Options
 
@@ -201,8 +230,8 @@ test results when multiple suites (multiple files) are run in a single task.
 
 **If you change the `formatter` this option may not apply.**
 
-* `whitespace`: boolean -- true to clean up casper whitespace
-* `filter`: regex -- anything that matches this filter will not be output
+- `whitespace`: boolean -- true to clean up casper whitespace
+- `filter`: regex -- anything that matches this filter will not be output
 
 ```javascript
 wendy: {
@@ -247,45 +276,47 @@ Follow the standards of the included eslint and markdownlint.
 
 ## CHANGELOG
 
-* 2.1.1
-    * License update
-* 2.1.0
-    * Add custom cli flag support, passing `--wendy` cli flags to casper
-* 2.0.0
-    * fix travis build by installing phantom, major bump
-* 1.0.5
-    * phantomjs is now a peer dependency
-* 1.0.4
-    * Ensure utf-8 output on process.stdout.write
-* 1.0.3
-    * Don't need lodash, removed
-* 1.0.2
-    * Logo :p
-* 1.0.1
-    * Readme update
-* 1.0.0
-    * Change `clean` to `formatterOptions.whitespace`
-    * Add `filter` to formatterOptions
-* 0.0.6
-    * Add `fail` and `warn` options
-* 0.0.5
-    * Add `formatter` option
-* 0.0.4
-    * Use `grunt.util.linefeed` for better Windows output
-* 0.0.3
-    * Add test for dubious output
-    * Fix aggregated output (skipped and dubious showing same result)
-* 0.0.2
-    * Split into modules in `lib/`
-* 0.0.1
-    * Forked from [ronaldlokers/grunt-casperjs]
-    * Refactor into single grunt task module
-    * Rename task from `casperjs` to `wendy`
-    * Changed `casperjsOptions` option key to `cli`
-    * Add support for custom runner
-    * Always use `silent` option from unpublished release of casperjs
-    * Expose node async settings
-    * parse casper output and show aggregated results for a set of files
+- 2.2.0
+    - Expose node child_process spawn opts as a task option.
+- 2.1.1
+    - License update
+- 2.1.0
+    - Add custom cli flag support, passing `--wendy` cli flags to casper
+- 2.0.0
+    - fix travis build by installing phantom, major bump
+- 1.0.5
+    - phantomjs is now a peer dependency
+- 1.0.4
+    - Ensure utf-8 output on process.stdout.write
+- 1.0.3
+    - Don't need lodash, removed
+- 1.0.2
+    - Logo :p
+- 1.0.1
+    - Readme update
+- 1.0.0
+    - Change `clean` to `formatterOptions.whitespace`
+    - Add `filter` to formatterOptions
+- 0.0.6
+    - Add `fail` and `warn` options
+- 0.0.5
+    - Add `formatter` option
+- 0.0.4
+    - Use `grunt.util.linefeed` for better Windows output
+- 0.0.3
+    - Add test for dubious output
+    - Fix aggregated output (skipped and dubious showing same result)
+- 0.0.2
+    - Split into modules in `lib/`
+- 0.0.1
+    - Forked from [ronaldlokers/grunt-casperjs]
+    - Refactor into single grunt task module
+    - Rename task from `casperjs` to `wendy`
+    - Changed `casperjsOptions` option key to `cli`
+    - Add support for custom runner
+    - Always use `silent` option from unpublished release of casperjs
+    - Expose node async settings
+    - parse casper output and show aggregated results for a set of files
       if `clean` option is true (default)
 
 ----
