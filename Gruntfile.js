@@ -36,7 +36,13 @@ module.exports = function (grunt) {
     // Configuration to be run (and then tested).
     wendy: {
       options: {
+        phantom: 'bin/phantomjs',
         cli: ['--foo=bar']
+      },
+      customphantom: {
+        options: {
+        },
+        files: { src: ['test/a*.js'] }
       },
       twotests: ['test/a*.js'],
       twomore: ['test/b*.js'],
