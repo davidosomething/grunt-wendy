@@ -276,6 +276,8 @@ Follow the standards of the included eslint and markdownlint.
 
 ## CHANGELOG
 
+- 2.2.1
+    - Update deps
 - 2.2.0
     - Expose node child_process spawn opts as a task option.
 - 2.1.1
