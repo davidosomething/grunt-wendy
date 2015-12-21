@@ -2,7 +2,7 @@ language: javascript
 
 before_install:
   - npm install -g grunt-cli
-  - npm install -g phantomjs@1.9.15
+  - npm install -g phantomjs
 
 install:
   - npm install
