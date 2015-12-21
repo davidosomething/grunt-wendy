@@ -20,6 +20,7 @@ module.exports = function wendyModule(grunt) {
 
     var options = this.options({
       async:       'eachSeries',
+      spawnOpts:   null,
       cli:         [],
       runner:      'test',
       formatter:   formatter,
