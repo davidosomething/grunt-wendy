@@ -4,7 +4,7 @@ var taskName = 'wendy';
 var taskDescription = 'CasperJs test runner';
 
 var async                = require('async');
-var phantomBinPath       = require('phantomjs').path;
+var phantomBinPath       = require('phantomjs-prebuilt').path;
 var getFilepaths         = require('./lib/getFilepaths.js');
 var filepathIterator     = require('./lib/filepathIterator.js');
 var formatter            = require('./lib/formatter.js');
