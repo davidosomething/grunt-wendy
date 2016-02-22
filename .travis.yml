@@ -7,7 +7,7 @@ branches:
 
 before_install:
   - npm install -g grunt-cli
-  - npm install -g phantomjs-prebuilt
+  - npm install phantomjs-prebuilt
 
 install:
   - npm install
