@@ -24,15 +24,10 @@ features:
 
 ## Getting Started
 
-This plugin requires Grunt `~0.4.0`
+This plugin requires Grunt `>=0.4.0`
 
-This plugin requires phantomjs `~1.9.11`
-It is specified as a peer dependency, so be sure to install the version of your
-choosing, e.g.
-
-- npm package version 1.9.11 on OSX for phantomjs 1.9.7 (least buggy version)
-- npm package version >=1.9.15 on node.js 4.0 or io.js (the only installable
-  versions due to other dependencies)
+This plugin requires phantomjs-prebuilt `~2.1.4`. It is specified as a peer
+dependency, so be sure to install it manually.
 
 If you haven't used [Grunt] before, be sure to check out the [Getting Started]
 guide, as it explains how to create a [Gruntfile] as well as install and use
@@ -165,7 +160,7 @@ wendy: {
 ```
 
 Of note is that you can change where you're running CasperJS from, e.g.
-in case your node_modules folder is for some reason not at the root of your 
+in case your `node_modules/` folder is for some reason not at the root of your
 project and you want to run CasperJS from a different directory to so you can
 require those modules.
 
@@ -276,6 +271,8 @@ Follow the standards of the included eslint and markdownlint.
 
 ## CHANGELOG
 
+- 3.0.0
+    - Update deps
 - 2.2.1
     - Update deps
 - 2.2.0
