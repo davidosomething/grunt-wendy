@@ -1,7 +1,7 @@
 {
   "name": "grunt-wendy",
   "description": "CasperJS test runner",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "homepage": "https://github.com/davidosomething/grunt-wendy",
   "author": {
     "name": "David O'Trakoun",
