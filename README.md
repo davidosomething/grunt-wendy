@@ -272,6 +272,8 @@ Follow the standards of the included eslint and markdownlint.
 
 ## CHANGELOG
 
+- 3.0.2
+    - Update deps to latest stables
 - 3.0.1
     - Fix require!
 - 3.0.0
