@@ -36,6 +36,7 @@ plugin with this command:
 
 ```shell
 npm install --save-dev grunt-wendy
+# DON'T FORGET THE phantomjs-prebuilt PEER DEPENDENCY
 ```
 
 One the plugin has been installed, it may be enabled inside your Gruntfile with
