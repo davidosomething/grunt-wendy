@@ -272,6 +272,8 @@ Follow the standards of the included eslint and markdownlint.
 
 ## CHANGELOG
 
+- 3.0.3
+    - bump casperjs to 1.1.1
 - 3.0.2
     - Update deps to latest stables
 - 3.0.1
