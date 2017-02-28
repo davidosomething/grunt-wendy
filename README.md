@@ -272,6 +272,8 @@ Follow the standards of the included eslint and markdownlint.
 
 ## CHANGELOG
 
+- 3.0.4
+    - bump all dependencies
 - 3.0.3
     - bump casperjs to 1.1.1
 - 3.0.2
