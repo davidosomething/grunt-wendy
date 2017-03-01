@@ -47,8 +47,7 @@
   "devDependencies": {
     "grunt": "~1.0.1",
     "grunt-bump": "^0.8.0",
-    "grunt-eslint": "^19.0.0",
-    "grunt-mdlint": "0.0.1"
+    "grunt-eslint": "^19.0.0"
   },
   "peerDependencies": {
     "grunt": ">=0.4.5"
