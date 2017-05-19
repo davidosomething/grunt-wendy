@@ -13,7 +13,7 @@ var aggregated = {
  */
 module.exports = function aggregate(data) {
   if (data.indexOf('executed in') > -1) {
-    var matches = data.match(/(\d+) passed.*(\d+) failed.*(\d+) dubious.*(\d+) skipped/);
+    var matches = data.match(/(\d+) passed\D*(\d+) failed\D*(\d+) dubious\D*(\d+) skipped/);
     aggregated.passed += parseInt(matches[1], 10);
     aggregated.failed += parseInt(matches[2], 10);
     aggregated.dubious += parseInt(matches[3], 10);
